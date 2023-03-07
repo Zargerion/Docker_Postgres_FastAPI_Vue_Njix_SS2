@@ -1,0 +1,7 @@
+setup.py
+app/main.py
+ss2.egg-info/PKG-INFO
+ss2.egg-info/SOURCES.txt
+ss2.egg-info/dependency_links.txt
+ss2.egg-info/requires.txt
+ss2.egg-info/top_level.txt
