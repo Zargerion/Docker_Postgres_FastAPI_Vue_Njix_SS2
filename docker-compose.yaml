@@ -8,6 +8,8 @@ services:
       - POSTGRES_USER=${DB_USERNAME}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_DATABASE}
+    networks:
+      - custom
 
   web:
     container_name: "nginx"
@@ -38,4 +40,7 @@ services:
     networks:
       - custom
     depends_on:
-      - postgres
+      - db
+networks:
+  custom:
+    driver: bridge

@@ -8,8 +8,13 @@ uvicorn main:app
 uvicorn main:app --reload
 pip install alembic
 
-docker compose up -d
+docker-compose pull (обновить)
+docker-compose down (остановить)
+docker-compose up -d (запустить)
 docker compose exec db psql SabterSite2DB --username Zargerion --password   -> (Sabter1)  -> exit
+
+docker run -it --name f4ccf3f9ab86 app uvicorn app.main:app --host 0.0.0.0
+docker ps -a (все контейнеры)
 
 alembic init alembic
 alembic revision --autogenerate -m "init"

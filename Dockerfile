@@ -1,7 +1,5 @@
-FROM alpine:latest
-RUN apk update \
-    && apk update
-RUN apk add python3.10.6
+FROM python:3.10-slim-buster
 COPY . .
-RUN python3 setup.py
-
+RUN python3 -m pip install -r requirements.txt
+EXPOSE 8000
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0"]
