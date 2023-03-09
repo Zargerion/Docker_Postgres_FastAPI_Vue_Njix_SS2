@@ -11,6 +11,9 @@ setup(
     'SQLAlchemy==1.4.26',
     'pytest==6.2.5',
     'requests==2.26.0',
+    'psycopg2-binary==2.9.5',
+    'alembic==1.10.1',
+    'python-dotenv==1.0.0',
     ],
     scripts=['app/main.py']
 )

@@ -3,3 +3,24 @@ sudo apt install python3.10-venv
 python3 -m venv ./venv
 . venv/bin/activate
 pip install -e .
+pip list
+uvicorn main:app
+uvicorn main:app --reload
+pip install alembic
+
+docker compose up -d
+docker compose exec db psql SabterSite2DB --username Zargerion --password   -> (Sabter1)  -> exit
+
+alembic init alembic
+alembic revision --autogenerate -m "init"
+alembic upgrade head
+("alternativly without alembic" -> python3 -> import dependencies -> dependencies._add_tables() -> exit())
+
+__
+bd
+\d+
+\d
+\x
+\d creations
+SELECT * FROM creations;
+__
