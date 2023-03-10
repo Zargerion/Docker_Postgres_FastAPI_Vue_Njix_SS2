@@ -1,210 +1,75 @@
 <template>
-  <div class="back">
-    <div class="guard">
-      <div class="first">
-          <div class="logo_holder"></div>
-      </div>
-      <div class="second">
-          <div class="start_key">
-              <a href="{% url 'really_main_page' %}" class="start_key_text">Start</a>
-          </div>
-      </div>
-      <div class="third">
-          <div class="links_holder">
-              <img :src="require(`@/assets/youtube.png`)" alt="youtube" class="image_link" onclick="location.href='https://www.youtube.com/channel/UCdFQVw5y8yJmw2aTi0qjxxA'">
-              <img :src="require(`@/assets/vk.png`)" alt="vk" class="image_link" onclick="location.href='https://vk.com/oleg_sabter'">
-              <img :src="require(`@/assets/telegram.png`)" alt="telegram" class="image_link" onclick="location.href='https://t.me/oleg_zarg'">
-              <img :src="require(`@/assets/discord.png`)" alt="discord" class="image_link" onclick="location.href='https://discord.gg/GEHdCpjYVY'">
-              <img :src="require(`@/assets/e-mail.png`)" alt="e-mail" class="image_link" onclick="location.href='mailto:iolegx7@gmail.com'">
-          </div>
-      </div>
+  <div class="full-viewport">
+    <div class="logo-parent">
+      <img :src="require(`@/assets/MainLogoSubter2.png`)">
+    </div>
+    <div class="start-parent">
+      <router-link :to="{ name: 'about' }" class="start-button">ENTER</router-link>
+    </div>
+    <div class="links-parent">
+      <img :src="require(`@/assets/youtube.png`)" alt="Image 1">
+      <img :src="require(`@/assets/vk.png`)" alt="Image 2">
+      <img :src="require(`@/assets/telegram.png`)" alt="Image 3">
+      <img :src="require(`@/assets/discord.png`)" alt="Image 4">
+      <img :src="require(`@/assets/e-mail.png`)" alt="Image 5">
     </div>
   </div>
-  
 </template>
 
-<script>
-
-</script>
-
 <style>
+.full-viewport {
+  height: 100vh;
+  width: 100vw;
+  background-color: #040f29;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
 
-  .body{
-      background: url("~@/assets/bg3.jpg") no-repeat center;
-      background-size: cover;
-      background-color: black;
-      width: 100%;
-      height: 100%;
-      padding: 0%;
-      margin: 0%;
-  }
+.logo-parent {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+}
 
-  .logo_holder {
-      display: block;
-      position: relative;
-      bottom: -30%; /*sdvig po relativu*/
-      background: url('~@/assets/MainLogoSubter2.png') no-repeat center;
-      background-size: contain;
-      width: 15%;
-      height: 100%;
-      margin-left: 10px;
-  }
+.logo-parent > img {
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-  }
+  width: 13rem;
+  height: auto;
+  object-fit: contain;
+  margin: 2%;
+}
 
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-    text-decoration: none;
-  }
+.start-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .guard {
-    width: 100%;
-    height: 100vh;
-  }
+.start-button {
+  background-color: #fac70ed5;
+  font-family: 'Times New Roman';
+  color: #e8e8e8;
+  padding: 0.40em 1.6em;
+  border: none;
+  cursor: pointer;
+  font-size: 2.5em;
+  border-radius: 10px;
+  text-decoration: none;
+}
 
-  .first {
-    height: 11vh;
-  }
+.start-button:hover {
+  background-color: #EB6E08;
+}
 
-  .second {
-    display: flex;
-    align-items: center;
-    height: 12vh;
-    margin: 33vh 0%;
-  }
+.links-parent {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 
-  .third {
-    height: 11vh;
-  }
-
-  .start_key {
-    display: flex;
-      justify-content: center;
-      align-items: center;
-    width: 16%;
-    height: 88%;
-      background-color: #fed136;
-      border-radius: 6px;
-    margin: auto;
-    padding: 0 10px;
-  }
-
-  .start_key_text {
-    display: block;
-    font-size: 	4.5vmin;
-    font-family: 'Algerian', sans-serif;
-    color: #1b1820de;
-    margin: 10px;
-  }
-
-  .start_key_text:hover {
-    color:#ffffff;
-    transition: color 0.06s linear;
-  }
-
-  .links_holder {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-  }
-
-  img {
-      display: block;
-      object-fit: contain;
-    width: 3%;
-    height: 100%;
-    margin-right: 1%;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
-
-  @media all and (orientation: landscape) and (max-width: 1150px) {
-    .start_key {
-      width: 200px;
-    }
-    }
-
-  @media all and (orientation: landscape) , (max-width: 785px) {
-    .start_key_text {
-      font-size: 40px;
-    }
-
-  }
-
-  @media all and (orientation: landscape) and (max-width: 1285px) {
-    .logo_holder{
-      margin-left: 20px;
-      width: 170px;
-    }
-
-  }
-
-  @media all and (orientation: landscape) and (max-width: 1285px) {
-    .logo_holder{
-      margin-left: 17px;
-    }
-  }
-
-  @media all and (orientation: landscape) and (max-width: 1024px) {
-    img {
-      width: 4%;
-    }
-    .first{
-      position: relative;
-    }
-    .logo_holder{
-      display: flex;
-      position: absolute;
-      height: 16vh;
-      bottom: -40px;
-    }
-  }
-
-  @media all and (orientation: landscape) and (min-width: 2550px) {
-    img {
-      margin-bottom: 1%;
-    }
-  }
-
-  @media all and (orientation: landscape) and (max-height: 270px) {
-    img {
-      margin-bottom: 2%;
-      width: 3%;
-    }
-  }
-
-  @media (orientation: portrait) and (min-width: 660px) and (max-width: 1024px) {
-    .start_key {
-      width: 300px;
-    }
-    .start_key_text {
-      font-size: 50px;
-    }
-    .first{
-      position: relative;
-    }
-    .logo_holder{
-      display: flex;
-      position: absolute;
-      width: 249px;
-      margin-left: 30px;
-    }
-    img {
-      margin-bottom: 2%;
-      width: 6%;
-    }
-
-  }
-
+.links-parent > img {
+  height: auto;
+  width: 3rem;
+  margin: 0 1% 1% 0;
+}
 </style>
