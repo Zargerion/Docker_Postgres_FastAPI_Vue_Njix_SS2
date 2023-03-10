@@ -46,7 +46,7 @@
 }
 
 .start-button {
-  background-color: #fac70ed5;
+  background-color: #e1a900e1;
   font-family: 'Times New Roman';
   color: #e8e8e8;
   padding: 0.40em 1.6em;
@@ -71,5 +71,6 @@
   height: auto;
   width: 3rem;
   margin: 0 1% 1% 0;
+  opacity: 95%;
 }
 </style>
