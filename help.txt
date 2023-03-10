@@ -29,3 +29,8 @@ bd
 \d creations
 SELECT * FROM creations;
 __
+
+sudo apt-get install npm, nodejs
+npm install -g @vue/cli
+vue create .
+npm run serve

@@ -34,13 +34,27 @@ services:
       - DB_PORT=${DB_PORT}
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./fastapi/Dockerfile
     ports:
       - "8000:8000"
     networks:
       - custom
     depends_on:
       - db
+  app-front: 
+    container_name: "app-front"
+    image: app-front
+    build:
+      context: .
+      dockerfile: ./vue/Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - custom
+    depends_on:
+      - app
+    expose:
+      - 8080
 networks:
   custom:
     driver: bridge
