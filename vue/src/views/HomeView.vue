@@ -1,10 +1,13 @@
 <template>
   <div class="full-viewport">
-    <div class="logo-parent">
+    <div class="back-image">
       <img :src="require(`@/assets/MainLogoSubter2.png`)">
     </div>
+    <div class="logo-frame">
+      <div>Sabter.Site</div>
+    </div>
     <div class="start-parent">
-      <router-link :to="{ name: 'about' }" class="start-button">ENTER</router-link>
+      <router-link :to="{ name: 'Creations' }" class="start-button">ENTER</router-link>
     </div>
     <div class="links-parent">
       <img :src="require(`@/assets/youtube.png`)" alt="Image 1">
@@ -17,29 +20,53 @@
 </template>
 
 <style>
+.back-image {
+  position: absolute;
+  animation: scroll 17s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.03;
+  z-index: 2;
+}
+
+@keyframes scroll {
+  from { left: -120%; }
+  to { left: 220%; }
+}
+
 .full-viewport {
+  position: relative;
   height: 100vh;
   width: 100vw;
-  background-color: #040f29;
+  background-color: #010114;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
+  z-index: 1;
 }
 
-.logo-parent {
+.logo-frame {
+  width: 20em;
+  height: 5rem;
+  border-bottom-right-radius: 25px;
   display: flex;
-  justify-content: start;
   align-items: flex-start;
+  justify-content: flex-start;
+  background-color: #d5a202;
 }
 
-.logo-parent > img {
-
-  width: 13rem;
-  height: auto;
-  object-fit: contain;
-  margin: 2%;
+.logo-frame > div {
+  text-decoration: none;
+  margin: 0.3em;
+  font-size: 3em;
+  font-family: 'Times New Roman';
+  font-weight: bold;
+  color: white;
 }
 
 .start-parent {
+  position: relative;
+  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +97,7 @@
 .links-parent > img {
   height: auto;
   width: 3rem;
-  margin: 0 1% 1% 0;
+  margin: 0 1em 1em 0;
   opacity: 95%;
 }
 </style>

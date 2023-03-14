@@ -3,13 +3,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Hello, bro!',
     component: () => import('../views/HomeView.vue')
   },
   {
     path: '/about',
-    name: 'about',
-
+    name: 'Creations',
     component: () => import('../views/AboutView.vue')
   }
 ]
@@ -20,3 +19,9 @@ const router = createRouter({
 })
 
 export default router
+
+router.beforeEach((to, from, next) => {
+  document.title = to.name;
+  next();
+})
+
