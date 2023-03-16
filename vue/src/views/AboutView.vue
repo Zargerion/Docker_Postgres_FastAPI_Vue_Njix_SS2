@@ -1,7 +1,7 @@
 <template>
   <div class="main-holder">
     <div class="title">Creations</div>
-    <div class="container">
+    <div class="grid-cols">
       <div class="division" ref="division">
           <nav id="menu" class="menu-left" ref="menu1">
             <button>link</button>
@@ -14,7 +14,7 @@
           </nav>
         <button id="show-button">>></button>
       </div>
-      <div class=""></div>
+      <div class=""><p>{{ msg }}</p></div>
       <div class="division">
         <nav id="menu" class="menu-right" ref="menu2">
           <button>link</button>
@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   mounted() {
     const itemWidth = this.$refs.division.offsetWidth;
@@ -57,8 +59,27 @@ export default {
         menuLeft.classList.add('open');
       }
     });
-  } 
-}
+  },
+  data() {
+    return {
+      msg: '',
+    };
+  },
+  methods: {
+    getMessage() {
+      axios.get('/')
+        .then((res) => {
+          this.msg = res.data;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+  },
+  created() {
+    this.getMessage();
+  },
+};
 </script>
 
 <style scoped>
@@ -77,7 +98,7 @@ export default {
     margin: 2rem;
   }
 
-  .container {
+  .grid-cols {
     display: grid;
     width: 100%;
     height: 70%;

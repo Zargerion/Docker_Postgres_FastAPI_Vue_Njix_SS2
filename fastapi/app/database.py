@@ -11,7 +11,8 @@ def get_db_settings() -> _DBSettings:
     return _DBSettings()
 
 settings = get_db_settings()
-SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.username}:{settings.password}@{settings.host}:{settings.port}/{settings.database}"
+# SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.username}:{settings.password}@{settings.host}:{settings.port}/{settings.database}" ### -> (if not in container)
+SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.username}:{settings.password}@172.18.0.2:{settings.port}/{settings.database}"
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Model = declarative_base()

@@ -12,9 +12,11 @@ docker-compose pull (обновить)
 docker-compose down (остановить)
 docker-compose up -d (запустить)
 docker compose exec db psql SabterSite2DB --username Zargerion --password   -> (Sabter1)  -> exit
+docker compose exec app alembic upgrade head
 
 docker run -it --name f4ccf3f9ab86 app uvicorn app.main:app --host 0.0.0.0
 docker ps -a (все контейнеры)
+docker network inspect sabter-site-2_custom 
 
 alembic init alembic
 alembic revision --autogenerate -m "init"
@@ -31,6 +33,7 @@ SELECT * FROM creations;
 __
 
 sudo apt-get install npm, nodejs
-npm install -g @vue/cli
+npm install -g @vue/cli (-g глобально на комп)
 vue create .
+npm install --save axios@1.2.1 bootstrap@5.2.3 (--save в проект package.json)
 npm run serve

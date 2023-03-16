@@ -1,15 +1,18 @@
-FROM node:14-alpine
+FROM node:lts-alpine
+
+ENV PATH /app/node_modules/.bin:$PATH
+RUN npm install @vue/cli -g
 
 ARG DIR=/vue
-
 RUN mkdir -p ${DIR}
-COPY . ${DIR}
+COPY ./vue ${DIR}
 WORKDIR ${DIR}
 
-RUN npm install -g npm
-RUN npm install 
+RUN ls
+RUN ls
+RUN ls
 
-COPY ./package.json ${DIR}
-COPY ./packege-lock.json ${DIR}
+
+RUN npm install
 
 CMD ["npm", "run", "serve"]

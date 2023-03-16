@@ -65,3 +65,4 @@ with open("image.jpg", "rb") as f:
 # Закрытие соединения с базой данных
 cur.close()
 conn.close()
+
