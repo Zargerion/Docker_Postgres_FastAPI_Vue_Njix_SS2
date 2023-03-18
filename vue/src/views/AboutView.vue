@@ -14,7 +14,9 @@
           </nav>
         <button id="show-button">>></button>
       </div>
-      <div class=""><p>{{ msg }}</p></div>
+      <div class="items-holder">
+        <CreationVue/>
+      </div>
       <div class="division">
         <nav id="menu" class="menu-right" ref="menu2">
           <button>link</button>
@@ -31,9 +33,12 @@
 </template>
 
 <script>
-import axios from 'axios';
+import CreationVue from "../components/CreationVue.vue";
 
 export default {
+  components: {
+    CreationVue
+  },
   mounted() {
     const itemWidth = this.$refs.division.offsetWidth;
       this.$el.style.setProperty('--element-width',
@@ -60,31 +65,11 @@ export default {
       }
     });
   },
-  data() {
-    return {
-      msg: '',
-    };
-  },
-  methods: {
-    getMessage() {
-      axios.get('/')
-        .then((res) => {
-          this.msg = res.data;
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    },
-  },
-  created() {
-    this.getMessage();
-  },
 };
 </script>
 
 <style scoped>
   .main-holder {
-    height: 3000px;
     width: 100vw;
     background-color: #010114;
     text-align: center;
@@ -154,4 +139,7 @@ export default {
     background-color: #bd8e00;
   }
 
+  .items-holder {
+    padding: 0 20px;
+  }
 </style>

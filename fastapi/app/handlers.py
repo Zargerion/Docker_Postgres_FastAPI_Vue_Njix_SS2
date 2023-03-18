@@ -37,7 +37,7 @@ async def delete_contact(
 ):
     creation = await _dependencies.getCreation(db=db, creation_id=creation_id)
     if creation is None:
-        raise _fastapi.HTTPException(status_code=404, detail="Contact does not exist")
+        raise _fastapi.HTTPException(status_code=404, detail="Creation does not exist")
 
     await _dependencies.deleteCreation(creation, db=db)
 
@@ -51,7 +51,7 @@ async def update_contact(
 ):
     creation = await _dependencies.getCreation(db=db, creation_id=creation_id)
     if creation is None:
-        raise _fastapi.HTTPException(status_code=404, detail="Contact does not exist")
+        raise _fastapi.HTTPException(status_code=404, detail="Creation does not exist")
 
     return await _dependencies.updateCreation(
         creation_data=creation_data, creation=creation, db=db
