@@ -16,7 +16,9 @@ docker compose exec app alembic upgrade head
 
 docker run -it --name f4ccf3f9ab86 app uvicorn app.main:app --host 0.0.0.0
 docker ps -a (все контейнеры)
-docker network inspect sabter-site-2_custom 
+docker network inspect sabter-site-2_custom
+docker run -v 0748b39ebcbcbb86406d37d11b9be9bda03c8e8ccaa472ecf7bfd8b3e0328cf6:/var/lib/postgresql/data postgres
+docker cp container_name:/var/lib/postgresql/data ./db
 
 alembic init alembic
 alembic revision --autogenerate -m "init"
@@ -37,3 +39,8 @@ npm install -g @vue/cli (-g глобально на комп)
 vue create .
 npm install --save axios@1.2.1 bootstrap@5.2.3 (--save в проект package.json)
 npm run serve
+
+---
+sudo chmod a+rwx . --recursive (анлочит пермишен лок) (u g c a)
+(--recursive еще все вложенное задевает)
+ls . -ld
