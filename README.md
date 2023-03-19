@@ -7,7 +7,7 @@ So, now you need "git". If you haven't, google how to get (https://git-scm.com/b
 
 Make a derectory. In this directory using console write:
 
-```git clone https://github.com/Zargerion/TimerToShutDownDesktopAppWPFWithMVVM.git```
+```git clone https://github.com/Zargerion/Docker_Postgres_FastAPI_Vue_Njix_SS2.git```
 
 ## Run
 
